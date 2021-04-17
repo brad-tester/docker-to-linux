@@ -34,6 +34,7 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+          docker pull kalilinux/kali-rolling
           make debian
           qemu-system-x86_64 -drive file=linux.img,index=0,media=disk,format=raw
           make clean
