@@ -52,7 +52,7 @@ linux.dir: linux.tar
 
 linux.img: builder linux.dir
 	@echo ${COL_GRN}"[Create ${DISTR} disk image]"${COL_END}
-	docker run -it \
+	docker run \
 		-v `pwd`:/os:rw \
 		-e DISTR=${DISTR} \
 		--privileged \
@@ -69,7 +69,7 @@ builder:
 
 .PHONY:
 builder-interactive:
-	docker run -it \
+	docker run \
 		-v `pwd`:/os:rw \
 		--cap-add SYS_ADMIN \
 		--device $(LOOPDEVICE) \
